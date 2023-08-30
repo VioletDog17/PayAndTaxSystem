@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 fun cardType(card: String, lastSum: Int, orderSum: Int): Int {
     var ans = 0
     var limitChecker = false
-    limitChecker = lastSum <= 75_000
+    limitChecker = lastSum + orderSum <= 75_000
     when (card) {
         "VK Pay" -> ans = 0
 
@@ -50,7 +50,7 @@ fun limit(card: String, lastSum: Int, orderSum: Int): Boolean {
     return status
 }
 
-fun pay(card: String, lastSum: Int, orderSum: Int): String {
+fun pay(card: String = "VKPay", lastSum: Int = 0, orderSum: Int): String {
     var pay = "Ошибка оплаты!"
     var comision = cardType(card, lastSum, orderSum)
     if (limit(card, lastSum, orderSum)) {
