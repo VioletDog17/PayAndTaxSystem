@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PayAndTaxSystem</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.kt</span></div><h1>Main.kt</h1><pre class="source lang-java linenums">fun main() {
+<span class="nc" id="L2">    val orderSum = 999;</span>
+<span class="nc" id="L3">    var lastSum = 0</span>
+<span class="nc" id="L4">    var card = &quot;Mastercard&quot;</span>
+
+//    println(cardType(card, lastSum, orderSum))
+<span class="nc" id="L7">   println(limit(card, orderSum, lastSum))</span>
+<span class="nc" id="L8">    println(pay(card, orderSum, lastSum))</span>
+<span class="nc" id="L9">    lastSum += orderSum</span>
+<span class="nc" id="L10">}</span>
+
+fun cardType(card: String, lastSum: Int, orderSum: Int): Int {
+<span class="fc" id="L13">    var ans = 0</span>
+<span class="fc" id="L14">    var limitChecker = false</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">    limitChecker = lastSum + orderSum &lt;= 75_000</span>
+<span class="fc bfc" id="L16" title="All 4 branches covered.">    when (card) {</span>
+<span class="fc" id="L17">        &quot;VK Pay&quot; -&gt; ans = 0</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        &quot;Mastercard&quot;, &quot;Maestro&quot; -&gt; if (limitChecker) {</span>
+<span class="fc" id="L20">            ans = 0</span>
+        } else {
+<span class="fc" id="L22">            ans = ((lastSum + orderSum) * 0.06 + 20).toInt()</span>
+        }
+
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        &quot;Visa&quot;, &quot;РњРёСЂ&quot; -&gt; if (orderSum * 0.075 &lt; 35) {</span>
+<span class="fc" id="L26">            ans = 35</span>
+        } else {
+<span class="fc" id="L28">            ans = (orderSum * 0.075).toInt()</span>
+        }
+    }
+<span class="fc" id="L31">    return ans</span>
+}
+
+fun limit(card: String, lastSum: Int, orderSum: Int): Boolean {
+<span class="fc" id="L35">    var status = false</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">    if (card != &quot;VK Pay&quot;) {</span>
+<span class="fc" id="L37">        when {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            (orderSum &gt; 150_000) -&gt; status = false</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            (orderSum + lastSum &gt; 600_000) -&gt; status = false</span>
+<span class="fc" id="L40">            else -&gt; status = true</span>
+        }
+    } else {
+<span class="fc" id="L43">        when {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            (orderSum &gt; 15_000) -&gt; status = false</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            (orderSum + lastSum &gt; 40_000) -&gt; status = false</span>
+<span class="fc" id="L46">            else -&gt; status = true</span>
+        }
+    }
+
+<span class="fc" id="L50">    return status</span>
+}
+
+<span class="nc" id="L53">fun pay(card: String = &quot;VKPay&quot;, lastSum: Int = 0, orderSum: Int): String {</span>
+<span class="fc" id="L54">    var pay = &quot;РћС€РёР±РєР° РѕРїР»Р°С‚С‹!&quot;</span>
+<span class="fc" id="L55">    var comision = cardType(card, lastSum, orderSum)</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (limit(card, lastSum, orderSum)) {</span>
+<span class="fc" id="L57">        when (comision) {</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            0 -&gt; pay = &quot;РљРѕРјРёСЃСЃРёСЏ РЅРµ РІР·С‹РјР°РµС‚СЃСЏ&quot;</span>
+<span class="fc" id="L59">            else -&gt; pay = &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёС‚ $comision СЂСѓР±Р»РµР№&quot;</span>
+        }
+    } else {
+<span class="fc" id="L62">        pay = &quot;РџСЂРµРІС‹С€РµРЅ Р»РёРјРёС‚&quot;</span>
+    }
+
+<span class="fc" id="L65">    return pay</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

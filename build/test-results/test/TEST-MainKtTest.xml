@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainKtTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2023-09-05T19:58:55" hostname="MAGICBOOK15" time="0.18">
+  <properties/>
+  <testcase name="cardTypeMasAndMae()" classname="MainKtTest" time="0.142"/>
+  <testcase name="VKoverLimit2()" classname="MainKtTest" time="0.002"/>
+  <testcase name="cardTypeVisaAndMirOverLim()" classname="MainKtTest" time="0.001"/>
+  <testcase name="VKinLimit()" classname="MainKtTest" time="0.001"/>
+  <testcase name="OthtercardOverLimit()" classname="MainKtTest" time="0.001"/>
+  <testcase name="cardTypeMasAndMaeAndlim()" classname="MainKtTest" time="0.001"/>
+  <testcase name="pay()" classname="MainKtTest" time="0.001"/>
+  <testcase name="pay2()" classname="MainKtTest" time="0.011"/>
+  <testcase name="pay3()" classname="MainKtTest" time="0.002"/>
+  <testcase name="OthtercardInLimit()" classname="MainKtTest" time="0.001"/>
+  <testcase name="cardTypeVisaAndMir()" classname="MainKtTest" time="0.001"/>
+  <testcase name="cardTypeVK()" classname="MainKtTest" time="0.001"/>
+  <testcase name="OthtercardOverLimit2()" classname="MainKtTest" time="0.002"/>
+  <testcase name="VKoverLimit()" classname="MainKtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
