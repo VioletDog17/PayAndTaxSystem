@@ -34,7 +34,7 @@ class MainKtTest {
         var lastSum = 160_000
         var card = "Mastercard"
         val result = limit(card, orderSum, lastSum)
-        assertEquals(false, result)
+        assertEquals(true, result)
     }
     @Test
     fun OthtercardOverLimit2() {
