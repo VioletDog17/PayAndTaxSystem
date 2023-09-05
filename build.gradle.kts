@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.0"
     application
+    id ("jacoco")
 }
 
 group = "ru.netology"

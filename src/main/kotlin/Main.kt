@@ -1,10 +1,10 @@
-fun main(args: Array<String>) {
-    var orderSum = 999;
+fun main() {
+    val orderSum = 999;
     var lastSum = 0
-    var card = "VK Pay"
+    var card = "Mastercard"
 
 //    println(cardType(card, lastSum, orderSum))
-//    println(limit(card, orderSum, lastSum))
+   println(limit(card, orderSum, lastSum))
     println(pay(card, orderSum, lastSum))
     lastSum += orderSum
 }
@@ -22,10 +22,10 @@ fun cardType(card: String, lastSum: Int, orderSum: Int): Int {
             ans = ((lastSum + orderSum) * 0.06 + 20).toInt()
         }
 
-        "Visa", "Мир" -> if (orderSum * 0.75 < 35) {
+        "Visa", "Мир" -> if (orderSum * 0.075 < 35) {
             ans = 35
         } else {
-            ans = (orderSum * 0.75).toInt()
+            ans = (orderSum * 0.075).toInt()
         }
     }
     return ans
